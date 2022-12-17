@@ -1,0 +1,30 @@
+#PlayButton{
+
+  -fx-background-color: BLACk;
+  -fx-border-radius: 140;
+    -fx-opacity: 0.6;
+}
+
+#PlayButton:hover{
+
+    -fx-background-color:gray;
+
+}
+#title{
+
+    -fx-text-fill: white;
+    -fx-opacity: 0.7;
+
+}
+#title:hover{
+    -fx-graphic-text-gap: 34;
+    -fx-opacity: 0.4;
+}
+#MainWindow{
+
+    -fx-background-color: Green;
+    -fx-background-repeat: stretch;
+    -fx-background-size: 900 506;
+    -fx-background-position: center center;
+    -fx-effect: dropshadow(three-pass-box, black, 30, 0.5, 0, 0);
+}
