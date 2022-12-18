@@ -5,6 +5,7 @@
 
 package logic;
 
+import gui.MainWindowsController;
 import gui.ThemeDisplayer;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
@@ -13,6 +14,7 @@ import logic.ThemeMap;
 import java.util.List;
 
 public class PipeDisplayer extends Canvas {
+
     private List<char[]> pgboard;
     ThemeDisplayer theme;
     double w;

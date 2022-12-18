@@ -7,14 +7,14 @@ public class FirstTheme implements ThemeDisplayer {
 	public MediaPlayer media;
 	//boolean ismuted = false;
 	/*public Image backgroundImage;
-	
+
 	public FirstTheme() {
 		try {
 			this.backgroundImage = new Image(new FileInputStream("./resources/FirstTheme/Background.jpg"));
 			this.music = new Media (new File("./resources/FirstTheme/song.mp3").toURI().toString());
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
-		}	
+		}
 	}*/
 	
 	@Override
@@ -49,12 +49,12 @@ public class FirstTheme implements ThemeDisplayer {
 	
 	@Override
 	public String get_s() {
-		return "./resources/FirstTheme/Start.png";
+		return getConnection();
 	}
 	
 	@Override
 	public String get_g() {
-		return "./resources/FirstTheme/marioStop.png";
+		return getConnection();
 	}
 
 	@Override
@@ -68,6 +68,14 @@ public class FirstTheme implements ThemeDisplayer {
 	}
 	public String getVideo() {
 		return "./resources/Video/BackVideo.mp4";
+	}
+	public String getConnection(){
+		return "./resources/FirstTheme/-.jpg";
+
+	}
+	public String getStartConect(){
+
+		return  "./resources/FirstTheme/StartingPoint.png";
 	}
 	@Override
 	public void stopMusic() {

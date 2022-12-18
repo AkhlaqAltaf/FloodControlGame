@@ -13,10 +13,16 @@
 <?import logic.PipeDisplayer?>
 
 
-<BorderPane stylesheets="MainView.css" fx:id="MainWindow" prefHeight="650" prefWidth="840.0"
-	xmlns="http://javafx.com/javafx/17.0.2"
-	xmlns:fx="http://javafx.com/fxml/1"
-	fx:controller="gui.MainWindowsController">
+<?import javafx.scene.layout.AnchorPane?>
+
+<?import javafx.scene.shape.Rectangle?>
+<BorderPane  stylesheets="MainView.css" fx:id="MainWindow" prefHeight="650" prefWidth="840.0"
+			xmlns="http://javafx.com/javafx/17.0.2"
+			xmlns:fx="http://javafx.com/fxml/1"
+			fx:controller="gui.MainWindowsController">
+
+
+
 	<top>
 		<MenuBar BorderPane.alignment="CENTER">
 			<menus>
@@ -52,6 +58,27 @@
 	</top>
 	<left>
 
+		<VBox spacing="5.0" BorderPane.alignment="CENTER">
+			<children>
+				<Button  fx:id="startButton" mnemonicParsing="false" onAction="#start" text="start" textFill="#8090ff" stylesheets="MainView.css">
+					<font>
+						<Font name="Arial Black" size="18.0" />
+					</font>
+				</Button>
+<!--				<Button mnemonicParsing="false" onAction="#stopTheGame" text="stop" textFill="#8080ff" >-->
+<!--					<font>-->
+<!--						<Font name="Arial Black" size="18.0" />-->
+<!--					</font></Button>-->
+<!--				<Button mnemonicParsing="false" text="solve" onAction="#solve" textFill="#8080ff" >-->
+<!--					<font>-->
+<!--						<Font name="Arial Black" size="18.0" />-->
+<!--					</font></Button>-->
+			</children>
+
+			<BorderPane.margin>
+				<Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+			</BorderPane.margin>
+		</VBox>
 	</left>
 	<bottom>
 		<HBox BorderPane.alignment="CENTER">
@@ -91,3 +118,4 @@
 					   width="562.0" BorderPane.alignment="CENTER"  />
 	</center>
 </BorderPane>
+

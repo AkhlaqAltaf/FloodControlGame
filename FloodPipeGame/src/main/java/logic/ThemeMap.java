@@ -35,10 +35,12 @@ public class ThemeMap {
 		String pathURL;
 
 		public ImageURL(String s) {
+
 			pathURL = s;
 		}
 
 		public String getPathURL() {
+
 			return pathURL;
 		}
 	};
@@ -53,7 +55,6 @@ public class ThemeMap {
 	public void setTheme(ThemeDisplayer atheme)
 	{
 		this.theme=atheme;
-
 		imagesPath.clear();
 		images.clear();
 		
@@ -98,12 +99,12 @@ public class ThemeMap {
 	}
 	
 	public void BackgroundImage() {
-		/* try {
-				this.backgroundImageOn = new Image(new FileInputStream(".resources/FirstTheme/Background.jpg"));
-			} catch (FileNotFoundException e) {
-				e.printStackTrace();
-			}*/
-			backgroundImageOn = theme.getBackgroundImage();//new Image(new FileInputStream(backgroundFileName.get()));
+//		 try {
+//				this.backgroundImageOn = String.valueOf(new Image(new FileInputStream(".resources/FirstTheme/Background.jpg")));
+//			} catch (FileNotFoundException e) {
+//				e.printStackTrace();
+//			}
+//			backgroundImageOn = theme.getBackgroundImage();//new Image(new FileInputStream(backgroundFileName.get()));
 
 		SnapshotParameters snp = new SnapshotParameters();
 		snp.setFill(Color.TRANSPARENT);

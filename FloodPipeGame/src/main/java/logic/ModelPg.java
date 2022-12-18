@@ -32,7 +32,9 @@ public class ModelPg extends Observable implements IModel {
 
 //function that rotate the pipes and count the number of step
 	public void switchCell(int i, int j) {
-		switch (this.pgboard.get(i)[j]) {
+		switch (this.pgboard.get(i)[j])
+		{
+
 		case '-':
 			this.pgboard.get(i)[j] = '|';
 			//countStep.set(countStep.get() + 1);

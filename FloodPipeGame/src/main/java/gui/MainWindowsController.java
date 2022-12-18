@@ -1,5 +1,16 @@
 package gui;
 
+import javafx.animation.TranslateTransition;
+import javafx.event.ActionEvent;
+import javafx.scene.effect.Glow;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
+import javafx.scene.shape.Rectangle;
+import javafx.stage.Window;
+import javafx.util.Duration;
 import logic.ModelPg;
 import logic.PipeDisplayer;
 import javafx.application.Platform;
@@ -19,9 +30,7 @@ import logic.FirstTheme;
 import logic.SecondTheme;
 import logic.ViewModel;
 
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.IOException;
+import java.io.*;
 import java.net.URL;
 import java.util.*;
 
@@ -32,6 +41,9 @@ public class MainWindowsController implements Initializable {
     Label countStep;
     @FXML
     Label TimerLabel;
+    @FXML
+    private BorderPane MainWindow;
+
 
     ViewModel viewmodel;
     private ListProperty<char[]> pgboard;
@@ -65,11 +77,12 @@ public class MainWindowsController implements Initializable {
                 System.out.println(W);
                 int j = (int) (event.getX() / W);
                 int i = (int) (event.getY() / H);
-                System.out.println(i + " " + j);
+                System.out.println(i + "      " + j);
                 viewmodel.switchCell(i, j);
                 viewmodel.countStep.set(viewmodel.countStep.get() + 1);
                 pipeDisplayer.setpipeboard(pgboard);
                 if (viewmodel.isGoal()) {
+
                     System.out.println("YOU WON!!!");
                     stopTimer();
                     wonMessage();
@@ -85,10 +98,17 @@ public class MainWindowsController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        setEnd();
+       setStart();
+
+
         countStep.setText("0");
         pipeDisplayer.setDisable(true);
         pipeDisplayer.setPipeData(pgboard, new FirstTheme());
         MouseClick();
+
+
+
     }
 
     public void start() {
@@ -197,11 +217,14 @@ public class MainWindowsController implements Initializable {
 
     //alert for the player, won,lose,save game
     public void wonMessage() {
-        Alert alert = new Alert(AlertType.INFORMATION);
-        alert.setTitle("Well Done");
-        alert.setHeaderText(null);
-        alert.setContentText("You Won! :)");
-        alert.showAndWait();
+
+
+        setAnimatedRectangle();
+//        Alert alert = new Alert(AlertType.INFORMATION);
+//        alert.setTitle("Well Done");
+//        alert.setHeaderText(null);
+//        alert.setContentText("You Won! :)");
+//        alert.showAndWait();
     }
 
     public void LossMessage() {
@@ -266,6 +289,74 @@ public class MainWindowsController implements Initializable {
             modelpg.setHost(resultIp);
         }
 
+    }
+
+    public void setAnimatedRectangle(){
+
+        System.out.println(MainWindow.getHeight()+ " Window Size " +MainWindow.getHeight() );
+       Double y=MainWindow.getHeight();
+       Double x=MainWindow.getWidth();
+        AnimateWater water=new AnimateWater();
+        MainWindow.getChildren().add(water.getRectangle(y,x));
+    }
+
+    public void setStart()  {
+
+        FirstTheme theme1=new FirstTheme();
+
+        InputStream stream = null;
+        try {
+            stream = new FileInputStream(theme1.getStartConect());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        Image image = new Image(stream);
+        //Creating the image view
+        ImageView imageView = new ImageView();
+        //Setting image to the image view
+        imageView.setImage(image);
+        //Setting the image view parameters
+        imageView.setX(80);
+        imageView.setY(70);
+        imageView.setFitWidth(90);
+        imageView.setPreserveRatio(true);
+
+        MainWindow.getChildren().add(imageView);
+    }
+    public void setEnd()  {
+
+        FirstTheme theme1=new FirstTheme();
+
+        InputStream stream = null;
+        try {
+            stream = new FileInputStream(theme1.getStartConect());
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        Pane pane=new Pane();
+        pane.setStyle("-fx-background-color: brown");
+        Image image = new Image(stream);
+
+        Glow glow = new Glow();
+
+        //setting level of the glow effect
+        glow.setLevel(0.9);
+
+        pane.setEffect(glow);
+
+        //Creating the image view
+        ImageView imageView = new ImageView();
+        //Setting image to the image view
+        imageView.setImage(image);
+        //Setting the image view parameters
+        imageView.setX(800);
+        imageView.setY(430);
+        imageView.setFitWidth(120);
+        imageView.setPreserveRatio(true);
+         MainWindow.setPrefWidth(900);
+
+        MainWindow.setStyle("-fx-background-color:#1f0d0d");
+        MainWindow.getChildren().add(imageView);
     }
 
 }

@@ -14,4 +14,6 @@ module com.example.floodpipegame {
     exports logic;
     opens logic to javafx.fxml;
     exports com.example.floodpipegame;
+
+//    opens Animations to javafx.fxml;
 }
