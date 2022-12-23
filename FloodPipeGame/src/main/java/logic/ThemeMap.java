@@ -61,6 +61,7 @@ public class ThemeMap {
 		imagesPath.put('-', new ImageURL(theme.get_Line()));
 		imagesPath.put('|', new ImageURL(theme.get_I()));
 		imagesPath.put('7', new ImageURL(theme.getPipe_7()));
+		imagesPath.put('8', new ImageURL(theme.getPipe_7A()));
 		imagesPath.put('J', new ImageURL(theme.getPipe_J()));
 		imagesPath.put('L', new ImageURL(theme.getPipe_L()));
 		imagesPath.put('F', new ImageURL(theme.getPipe_F()));
@@ -82,14 +83,14 @@ public class ThemeMap {
 	}
 	public Image getImage(char type) {
 		if (!images.containsKey(type)) {
-			System.out.println("ghhg");
-			System.out.println(type);
+//			System.out.println("ghhg");
+//			System.out.println(type);
 			String path = imagesPath.get(type).getPathURL();
-			System.out.println(path);
+//			System.out.println(path);
 			Image a = null;
 			try {
 				a = new Image(new FileInputStream(path));
-				System.out.println(a);
+//				System.out.println(a);
 			} catch (FileNotFoundException e) {
 				e.printStackTrace();
 			}

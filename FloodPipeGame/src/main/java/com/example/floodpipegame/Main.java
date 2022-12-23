@@ -18,7 +18,7 @@ public class Main extends Application {
 
         Image image=new Image("file:resources/FirstTheme/GameLogo.png");
         primaryStage.getIcons().add(image);
-        scene.getStylesheets().add(getClass().getResource("MainView.css").toExternalForm());
+        scene.getStylesheets().add(getClass().getResource("CSS/MainView.css").toExternalForm());
         primaryStage.setScene(scene);
         primaryStage.show();
 

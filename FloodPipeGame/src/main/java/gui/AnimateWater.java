@@ -53,6 +53,7 @@ public class AnimateWater implements Initializable {
 
         tt.play();
         tt.setOnFinished(e->{
+
             tt.setByX(0.0);
             rectangle.setWidth(60);
             rectangle.setHeight(200);

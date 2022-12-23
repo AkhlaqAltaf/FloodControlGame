@@ -40,6 +40,7 @@ public class PipeDisplayer extends Canvas {
             this.w = W / (double)((char[])this.pgboard.get(0)).length;
             this.h = H / (double)this.pgboard.size();
             GraphicsContext gc = this.getGraphicsContext2D();
+
             gc.clearRect(0.0, 0.0, W, H);
 
             for(int i = 0; i < this.pgboard.size(); ++i) {
@@ -97,6 +98,7 @@ public class PipeDisplayer extends Canvas {
     }
 
     public void setPipeTheme(ThemeDisplayer themedisp) {
+
         ThemeMap.getInstance().setTheme(themedisp);
     }
 

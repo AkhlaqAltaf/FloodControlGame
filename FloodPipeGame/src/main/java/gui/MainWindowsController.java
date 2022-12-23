@@ -2,6 +2,7 @@ package gui;
 
 import javafx.animation.TranslateTransition;
 import javafx.event.ActionEvent;
+import javafx.geometry.Insets;
 import javafx.scene.effect.Glow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -9,6 +10,7 @@ import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
+import javafx.stage.Stage;
 import javafx.stage.Window;
 import javafx.util.Duration;
 import logic.ModelPg;
@@ -72,18 +74,18 @@ public class MainWindowsController implements Initializable {
             @Override
             public void handle(MouseEvent event) {
                 double H = pipeDisplayer.getH();
-                System.out.println(H);
+//                System.out.println(H);
                 double W = pipeDisplayer.getW();
-                System.out.println(W);
+//                System.out.println(W);
                 int j = (int) (event.getX() / W);
                 int i = (int) (event.getY() / H);
-                System.out.println(i + "      " + j);
+//                System.out.println(i + "      " + j);
                 viewmodel.switchCell(i, j);
                 viewmodel.countStep.set(viewmodel.countStep.get() + 1);
                 pipeDisplayer.setpipeboard(pgboard);
                 if (viewmodel.isGoal()) {
 
-                    System.out.println("YOU WON!!!");
+//                    System.out.println("YOU WON!!!");
                     stopTimer();
                     wonMessage();
                     resetTimer();
@@ -113,7 +115,7 @@ public class MainWindowsController implements Initializable {
 
     public void start() {
         pipeDisplayer.setDisable(false);
-        System.out.println("start the game!\n");
+//        System.out.println("start the game!\n");
         startTimer();
 
     }
@@ -121,7 +123,7 @@ public class MainWindowsController implements Initializable {
     public void stopTheGame() throws IOException {
         stopTimer();
         //theme.stopMusic();
-        System.out.println("stop the game!\n");
+//        System.out.println("stop the game!\n");
 
     }
 
@@ -131,13 +133,13 @@ public class MainWindowsController implements Initializable {
         Thread th = new Thread(() -> {
 
             try {
-                System.out.println("Solution:");
+//                System.out.println("Solution:");
                 for (int k = 0; k < sol.size(); k++) {
                     String line = sol.get(k);
                     int i = Integer.parseInt(line.split(",")[0]);
                     int j = Integer.parseInt(line.split(",")[1]);
                     int times = Integer.parseInt(line.split(",")[2]);
-                    System.out.println(line);
+//                    System.out.println(line);
                     for (int w = 0; w < times; w++) {
                         viewmodel.switchCell(i, j);
                     }
@@ -158,7 +160,7 @@ public class MainWindowsController implements Initializable {
         File chosen = fc.showOpenDialog(null);
         if (chosen != null) {
 
-            System.out.println(chosen.getName());
+//            System.out.println(chosen.getName());
             viewmodel.load(chosen);
             pipeDisplayer.redraw();
         }
@@ -293,7 +295,7 @@ public class MainWindowsController implements Initializable {
 
     public void setAnimatedRectangle(){
 
-        System.out.println(MainWindow.getHeight()+ " Window Size " +MainWindow.getHeight() );
+//        System.out.println(MainWindow.getHeight()+ " Window Size " +MainWindow.getHeight() );
        Double y=MainWindow.getHeight();
        Double x=MainWindow.getWidth();
         AnimateWater water=new AnimateWater();
@@ -316,12 +318,26 @@ public class MainWindowsController implements Initializable {
         //Setting image to the image view
         imageView.setImage(image);
         //Setting the image view parameters
-        imageView.setX(80);
-        imageView.setY(70);
-        imageView.setFitWidth(90);
+
+
+        imageView.setFitWidth(110);
         imageView.setPreserveRatio(true);
 
-        MainWindow.getChildren().add(imageView);
+        Button start=new Button("Start");
+        start.setOnAction(e->{
+            start();
+        });
+        BorderPane pane=new BorderPane();
+        pane.setTop(start);
+        BorderPane.setMargin(imageView,new Insets(2,0,0,0));
+        pane.setLeft(imageView);
+
+//        BorderPane.setMargin(pane,new Insets(0,0,10,0));
+    ;
+
+
+
+        MainWindow.setLeft(pane);
     }
     public void setEnd()  {
 
@@ -349,14 +365,21 @@ public class MainWindowsController implements Initializable {
         //Setting image to the image view
         imageView.setImage(image);
         //Setting the image view parameters
-        imageView.setX(800);
-        imageView.setY(430);
-        imageView.setFitWidth(120);
+        imageView.setFitWidth(110);
+
+
         imageView.setPreserveRatio(true);
-         MainWindow.setPrefWidth(900);
+
+
+
+
+
+        BorderPane.setMargin(imageView,new Insets(420,0,0,0));
 
         MainWindow.setStyle("-fx-background-color:#1f0d0d");
-        MainWindow.getChildren().add(imageView);
+        MainWindow.setRight(imageView);
+
+//        MainWindow.getChildren().add(imageView);
     }
 
 }

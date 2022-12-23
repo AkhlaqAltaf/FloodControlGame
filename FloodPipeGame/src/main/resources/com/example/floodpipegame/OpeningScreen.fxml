@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
-<AnchorPane fx:id="openingScreen" prefHeight="700" prefWidth="840.0" stylesheets="@MainView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.floodpipegame.OpeningScreen">
+<AnchorPane fx:id="openingScreen" prefHeight="700" prefWidth="840.0" stylesheets="@CSS/MainView.css" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.floodpipegame.OpeningScreen">
 
 
    <children>
@@ -17,7 +17,7 @@
 
 
 
-      <Button fx:id="PlayButton" layoutX="302.0" layoutY="389.0" prefHeight="50" prefWidth="150.0" scaleX="2.0" scaleY="1.2" scaleZ="7.0" styleClass="play-Button" stylesheets="@MainView.css" text="Play" textFill="WHITE" translateZ="45.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
+      <Button fx:id="PlayButton" layoutX="302.0" layoutY="389.0" prefHeight="50" prefWidth="150.0" scaleX="2.0" scaleY="1.2" scaleZ="7.0" styleClass="play-Button" stylesheets="@CSS/MainView.css" text="Play" textFill="WHITE" translateZ="45.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="350.0">
          <font>
             <Font name="Wingdings" size="25.0" />
          </font>

@@ -38,6 +38,11 @@ public class SecondTheme implements ThemeDisplayer {
 	}
 
 	@Override
+	public String getPipe_7A() {
+		return "./resources/SecondTheme/theme7.png";
+	}
+
+	@Override
 	public String getPipe_J() {
 		return "./resources/SecondTheme/themJ.png";
 	}
@@ -54,12 +59,12 @@ public class SecondTheme implements ThemeDisplayer {
 
 	@Override
 	public String get_s() {
-		return "./resources/SecondTheme/startmario.png";
+		return "./resources/SecondTheme/theme-.png";
 	}
 
 	@Override
 	public String get_g() {
-		return "./resources/SecondTheme/STOP.png";
+		return "./resources/SecondTheme/theme-.png";
 	}
 
 	@Override

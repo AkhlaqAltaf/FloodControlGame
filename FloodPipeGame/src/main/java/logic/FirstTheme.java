@@ -31,7 +31,9 @@ public class FirstTheme implements ThemeDisplayer {
 	public String getPipe_7() {
 		return "./resources/FirstTheme/7.jpg";
 	}
-
+	public String getPipe_7A() {
+		return "./resources/FirstTheme/7.jpg";
+	}
 	@Override
 	public String getPipe_J() {
 		return "./resources/FirstTheme/J.jpg";
