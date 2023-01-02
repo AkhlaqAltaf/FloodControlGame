@@ -51,14 +51,14 @@
                   <Insets top="200.0" />
                </VBox.margin>
 				</Button>
-<!--				<Button mnemonicParsing="false" onAction="#stopTheGame" text="stop" textFill="#8080ff" >-->
-<!--					<font>-->
-<!--						<Font name="Arial Black" size="18.0" />-->
-<!--					</font></Button>-->
-<!--				<Button mnemonicParsing="false" text="solve" onAction="#solve" textFill="#8080ff" >-->
-<!--					<font>-->
-<!--						<Font name="Arial Black" size="18.0" />-->
-<!--					</font></Button>-->
+				<Button mnemonicParsing="false" onAction="#stopTheGame" text="stop" textFill="#8080ff" >
+					<font>
+						<Font name="Arial Black" size="18.0" />
+					</font></Button>
+				<Button mnemonicParsing="false" text="solve" onAction="#solve" textFill="#8080ff" >
+					<font>
+						<Font name="Arial Black" size="18.0" />
+					</font></Button>
 			</children>
 
 			<BorderPane.margin>
